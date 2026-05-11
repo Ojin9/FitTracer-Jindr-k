@@ -1,11 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitTracker Pro</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    
+  <div class="container">
+
+    <header>
+      <h1>FitTracker Pro</h1>
+      <p class="subtitle">Systém pro správu fitness tréninků</p>
+    </header>
+
+    <div class="console-hint">
+      <span class="badge">F12</span>
+      Otevřete DevTools → záložka <strong>Console</strong> pro výpis tréninků
+    </div>
+
+    <section class="classes">
+      <h2>Hierarchie tříd</h2>
+      <div class="class-grid">
+
+        <div class="class-card abstract">
+          <div class="class-header">
+            <span class="stereotype">«abstract»</span>
+            <strong>WorkoutItem</strong>
+          </div>
+          <div class="class-body">
+            <div class="section-label">Atributy</div>
+            <ul>
+              <li><span class="vis prot">#</span> id: string</li>
+              <li><span class="vis prot">#</span> name: string</li>
+              <li><span class="vis prot">#</span> durationMinutes: number</li>
+              <li><span class="vis prot">#</span> date: Date</li>
+              <li><span class="vis prot">#</span> notes: string</li>
+            </ul>
+            <div class="section-label">Metody</div>
+            <ul>
+              <li><span class="vis pub">+</span> getId(): string</li>
+              <li><span class="vis pub italic">+</span> <em>calculateCalories(): number</em></li>
+              <li><span class="vis pub italic">+</span> <em>getSummary(): string</em></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="class-card cardio">
+          <div class="class-header">
+            <strong>CardioWorkout</strong>
+            <span class="extends">extends WorkoutItem</span>
+          </div>
+          <div class="class-body">
+            <div class="section-label">Atributy</div>
+            <ul>
+              <li><span class="vis priv">-</span> distanceKm: number</li>
+              <li><span class="vis priv">-</span> avgHeartRate: number</li>
+              <li><span class="vis priv">-</span> cardioType: CardioType</li>
+              <li><span class="vis priv">-</span> userWeightKg: number</li>
+            </ul>
+            <div class="section-label">Metody</div>
+            <ul>
+              <li><span class="vis pub">+</span> calculateCalories(): number</li>
+              <li><span class="vis pub">+</span> getPace(): number</li>
+              <li><span class="vis pub">+</span> getCardioZone(): string</li>
+              <li><span class="vis pub">+</span> getSummary(): string</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="class-card strength">
+          <div class="class-header">
+            <strong>StrengthWorkout</strong>
+            <span class="extends">extends WorkoutItem</span>
+          </div>
+          <div class="class-body">
+            <div class="section-label">Atributy</div>
+            <ul>
+              <li><span class="vis priv">-</span> exercises: Exercise[]</li>
+              <li><span class="vis priv">-</span> restBetweenSets: number</li>
+              <li><span class="vis priv">-</span> difficulty: Difficulty</li>
+            </ul>
+            <div class="section-label">Metody</div>
+            <ul>
+              <li><span class="vis pub">+</span> calculateCalories(): number</li>
+              <li><span class="vis pub">+</span> getTotalVolume(): number</li>
+              <li><span class="vis pub">+</span> addExercise(e): void</li>
+              <li><span class="vis pub">+</span> getOneRepMax(name): number</li>
+              <li><span class="vis pub">+</span> getSummary(): string</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="class-card exercise">
+          <div class="class-header">
+            <strong>Exercise</strong>
+            <span class="stereotype">«value object»</span>
+          </div>
+          <div class="class-body">
+            <div class="section-label">Atributy</div>
+            <ul>
+              <li><span class="vis priv">-</span> exerciseName: string</li>
+              <li><span class="vis priv">-</span> sets: number</li>
+              <li><span class="vis priv">-</span> reps: number</li>
+              <li><span class="vis priv">-</span> weightKg: number</li>
+            </ul>
+            <div class="section-label">Metody</div>
+            <ul>
+              <li><span class="vis pub">+</span> getVolume(): number</li>
+              <li><span class="vis pub">+</span> toString(): string</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="class-card plan">
+          <div class="class-header">
+            <strong>WorkoutPlan</strong>
+          </div>
+          <div class="class-body">
+            <div class="section-label">Atributy</div>
+            <ul>
+              <li><span class="vis priv">-</span> items: WorkoutItem[]</li>
+              <li><span class="vis priv">-</span> name: string</li>
+            </ul>
+            <div class="section-label">Metody</div>
+            <ul>
+              <li><span class="vis pub">+</span> addItem(item): void</li>
+              <li><span class="vis pub">+</span> getTotalCalories(): number</li>
+              <li><span class="vis pub">+</span> getStats(): PlanStats</li>
+              <li><span class="vis pub">+</span> getSummary(): string</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="enums">
+      <h2>Výčtové typy (enum)</h2>
+      <div class="enum-row">
+        <div class="enum-card">
+          <div class="enum-header">CardioType</div>
+          <ul><li>RUN – Běh</li><li>CYCLE – Kolo</li><li>SWIM – Plavání</li><li>ROW – Veslování</li></ul>
+        </div>
+        <div class="enum-card">
+          <div class="enum-header">Difficulty</div>
+          <ul><li>EASY – Lehký</li><li>MEDIUM – Střední</li><li>HARD – Těžký</li></ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Načtení aplikace – výstup se zobrazí v konzoli prohlížeče (F12 → Console) -->
+  <script src="dist/app.js"></script>
 </body>
 </html>

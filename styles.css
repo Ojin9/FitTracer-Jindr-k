@@ -1,0 +1,137 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  min-height: 100vh;
+  padding: 2rem 1rem 4rem;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+header {
+  text-align: center;
+  padding: 2.5rem 0 1.75rem;
+}
+h1 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #38bdf8;
+  letter-spacing: -1px;
+}
+.subtitle {
+  color: #64748b;
+  margin-top: 0.4rem;
+  font-size: 1.05rem;
+}
+
+/* ── Console hint ── */
+.console-hint {
+  text-align: center;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 2.5rem;
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+.badge {
+  display: inline-block;
+  background: #38bdf8;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.15em 0.5em;
+  border-radius: 4px;
+  margin-right: 0.4rem;
+}
+
+/* ── Section headings ── */
+h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #7dd3fc;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Classes grid ── */
+.classes { margin-bottom: 2rem; }
+
+.class-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1rem;
+}
+
+.class-card {
+  background: #1e293b;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  overflow: hidden;
+  font-size: 0.82rem;
+}
+
+.class-header {
+  padding: 0.6rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.class-header strong { font-size: 0.95rem; }
+.stereotype  { font-size: 0.7rem; color: #94a3b8; font-style: italic; }
+.extends     { font-size: 0.7rem; color: #64748b; }
+
+.class-body { padding: 0.5rem 0.9rem 0.9rem; }
+
+.section-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #475569;
+  margin: 0.55rem 0 0.2rem;
+}
+
+.class-body ul { list-style: none; line-height: 1.9; }
+.class-body li { color: #cbd5e1; }
+.class-body em { font-style: italic; color: #a5b4fc; }
+
+/* Visibility markers */
+.vis       { font-size: 0.75rem; font-weight: 700; margin-right: 3px; }
+.vis.pub   { color: #4ade80; }
+.vis.prot  { color: #fbbf24; }
+.vis.priv  { color: #f87171; }
+
+/* Card accent colours */
+.abstract  .class-header { background: #1a2744; border-bottom: 2px solid #6366f1; }
+.cardio    .class-header { background: #0c2a1e; border-bottom: 2px solid #34d399; }
+.strength  .class-header { background: #2a1218; border-bottom: 2px solid #f87171; }
+.exercise  .class-header { background: #1a2030; border-bottom: 2px solid #38bdf8; }
+.plan      .class-header { background: #231a2a; border-bottom: 2px solid #a78bfa; }
+
+/* ── Enums ── */
+.enums { margin-top: 0.5rem; }
+.enum-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.enum-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 0.75rem 1.1rem 0.9rem;
+  min-width: 180px;
+  font-size: 0.82rem;
+}
+.enum-header {
+  font-weight: 700;
+  color: #fbbf24;
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+}
+.enum-card ul { list-style: none; line-height: 1.9; color: #94a3b8; }
